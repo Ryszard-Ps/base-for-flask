@@ -11,7 +11,7 @@ def index():
     '''
     return jsonify({
         "urls": [
-            "api/v1",
-            "api/v1/hello"
+            "/api/v1",
+            "/api/v1/hello"
         ]
     })

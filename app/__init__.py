@@ -57,7 +57,7 @@ def configure_logging(app):
 def init_modules(app):
 
     # Import blueprint modules
-    from app.main.views import home
+    from app.home.views import home
     from app.api.v1 import v1
 
     app.register_blueprint(home, url_prefix='/')
