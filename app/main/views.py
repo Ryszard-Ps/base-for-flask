@@ -1,12 +1,17 @@
 # -*- encoding: utf-8 -*-
-from flask import Blueprint
+from flask import Blueprint, jsonify
 
-main = Blueprint('main', __name__)
+home = Blueprint('home', __name__)
 
 
-@main.route('/', methods=['GET'])
+@home.route('/', methods=['GET'])
 def index():
     ''' Renders the App index page.
     :return:
     '''
-    return "Welcome to the Flask App."
+    return jsonify({
+        "urls": [
+            "api/v1",
+            "api/v1/hello"
+        ]
+    })
