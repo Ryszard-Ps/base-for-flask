@@ -1,9 +1,12 @@
 # -*- encoding: utf-8 -*-
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 import os
 import configparser
 from logging.handlers import RotatingFileHandler
-from flask.ext.cors import CORS
+from flask_cors import CORS
+
+db = SQLAlchemy()
 
 
 def create_app(config_filename):
@@ -25,6 +28,9 @@ def create_app(config_filename):
 
     # Configure logging.
     configure_logging(app)
+
+    # Configure Database
+    db.init_app(app)
 
     # Init modules
     init_modules(app)
@@ -58,7 +64,7 @@ def init_modules(app):
 
     # Import blueprint modules
     from app.home.views import home
-    from app.api.v1 import v1
+    from app.api.v1.views import v1
 
     app.register_blueprint(home, url_prefix='/')
     app.register_blueprint(v1, url_prefix='/api/v1')

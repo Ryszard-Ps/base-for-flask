@@ -15,4 +15,4 @@ SQLALCHEMY_ECHO = True
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 # Variable de conexión de SQLALCHEMY
-SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/default.sqlite'
+SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/default.db'

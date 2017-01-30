@@ -1,4 +1,6 @@
 from . import v1
+# Required to perform Migration SQLAlchemy Model and instance db
+from app.api.v1.models import Base, db
 
 @v1.route('/', methods=['GET'])
 def index():
